@@ -14,6 +14,7 @@ function PailaLogo({ size = 36, className = '' }) {
 const NAV_LINKS = [
   { label: 'Destinations', href: '#destination' },
   { label: 'Explore', href: '#explore' },
+  {label: 'Culture', href:'#culture'},
   { label: 'Products', href: '#products' },
 ]
 
