@@ -1,13 +1,14 @@
 
 import Navbar from "./components/common/Navbar"
+import Footer from "./components/common/Footer"
 
 function App(){
 return(
-     <div className="min-h-[200vh] bg-[#f5f0e8] text-[#1a2e1f] pt-28 px-8 font-sans">
+     <div className="min-h-[200vh] bg-[#f5f0e8] text-[#1a2e1f]  font-sans flex flex-col">
       <Navbar isLoggedIn={false} />
       
       {/* Test Hero Content */}
-      <main className="max-w-4xl mx-auto space-y-6 text-center mt-12">
+      <main className=" grow pt-28 pb-16 px-6 md:px-8 max-w-6xl mx-auto w-full space-y-6 text-center ">
         <span className="inline-block bg-[#3d6b4f]/10 text-[#3d6b4f] px-4 py-1.5 rounded-full text-sm font-semibold">
           पाइला इको-टूरिज्म (Paila Tourism)
         </span>
@@ -24,6 +25,7 @@ return(
           </p>
         </div>
       </main>
+      <Footer />
     </div>
 )
 }
