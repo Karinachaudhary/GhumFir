@@ -106,20 +106,17 @@ export default function Home() {
         <div className="absolute inset-0 bg-linear-to-t from-[#1a2e1f] via-[#1a2e1f]/40 to-black/30"></div>
 
         {/* Hero Content Overlay */}
-        <div className="relative z-10 h-full flex flex-col justify-between p-8 md:p-14 max-w-5xl mx-auto text-center text-white">
+        <div className="absolute inset-0 z-10 pointer-events-none flex items-end pb-20 md:pb-28 px-8 md:px-16 text-red-600">
           <div className="pt-12 space-y-4">
-            {/* <span className="inline-flex items-center gap-2 bg-[#f5f0e8]/15 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-xs md:text-sm font-medium tracking-wider text-[#f5f0e8] uppercase">
-              ✦ पाइला इको-टूरिज्म (Paila Tourism)
-            </span> */}
 
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-              Explore Nepal. <br />
-              {/* <span className="text-amber-200">Step by Step (पाइला-पाइला).</span> */}
+            <h1 className="text-4xl md:text-6xl font-serif tracking-tight leading-tight">
+               हाम्रो नेपाल<br />
+              <span className="text-amber-50 md:text-3xl">नेपाल जान्नुहोस्। अनुभव गर्नुहोस्। यसको एउटा टुक्रा साथमा लैजानुहोस्।</span>
             </h1>
 
-            {/* <p className="text-base md:text-xl text-[#f5f0e8]/90 max-w-2xl mx-auto font-light">
-              Book sustainable Himalayan treks, rent eco-certified gear, and leave direct financial footprints in remote mountain villages.
-            </p> */}
+            {/* <p className="text-base md:text-xl text-[#f5f0e8]/90 max-w-2xl mx-auto font-light"> */}
+              {/* Book sustainable Himalayan treks, rent eco-certified gear, and leave direct financial footprints in remote mountain villages. */}
+            {/* </p> */}
           </div>
 
           {/* Interactive Search Bar Card */}
