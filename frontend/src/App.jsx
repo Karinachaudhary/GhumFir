@@ -9,7 +9,7 @@ return(
       <Navbar isLoggedIn={false} />
       
       {/* Test Hero Content */}
-      <main className=" grow pt-28 pb-16 px-6 md:px-8 max-w-6xl mx-auto w-full space-y-6 text-center ">
+      <main className=" grow mx-auto w-full space-y-6 text-center ">
         <Home />
       </main>
       <Footer />
