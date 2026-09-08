@@ -74,7 +74,7 @@ export default function Navbar({ onStart, onRegister, onDashboard, isLoggedIn })
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-8 text-1.5xl font-medium text-[#3d5e53]">
+          <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-8 text-2xl font-serif text-red-800">
             {NAV_LINKS.map((link) => (
               <a key={link.href} href={link.href} className="hover:text-[#1a2e1f] transition-colors">
                 {link.label}
@@ -93,7 +93,7 @@ export default function Navbar({ onStart, onRegister, onDashboard, isLoggedIn })
               <button
                 type="button"
                 onClick={onRegister}
-                className="hover:text-[#1a2e1f] transition-colors cursor-pointer font-semibold text-[#3d6b4f]"
+                className="hover:text-[#1a2e1f] transition-colors cursor-pointer font-serif text-red-800"
               >
                 Register
               </button>
