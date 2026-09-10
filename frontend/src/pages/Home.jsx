@@ -1,41 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
-
-// Mock Data for Destinations & Products
-const FEATURED_DESTINATIONS = [
-  {
-    id: 1,
-    title: "Annapurna Circuit Eco-Trek",
-    region: "Annapurna",
-    elevation: "5,416m",
-    days: "12 Days",
-    GhumFirScore: 96,
-    price: "NPR 65,000",
-    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=800",
-    tag: "Cultural Homestay"
-  },
-  {
-    id: 2,
-    title: "Everest Footprint Trail",
-    region: "Khumbu",
-    elevation: "5,364m",
-    days: "14 Days",
-    GhumFirScore: 92,
-    price: "NPR 110,000",
-    image: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80&w=800",
-    tag: "Sherpa Heritage"
-  },
-  {
-    id: 3,
-    title: "Langtang Sacred Valley Walk",
-    region: "Langtang",
-    elevation: "4,773m",
-    days: "8 Days",
-    GhumFirScore: 98,
-    price: "NPR 42,000",
-    image: "https://images.unsplash.com/photo-1585863810459-00f72ec1c8b3?q=80&w=800",
-    tag: "100% Local Eco"
-  }
-]
+import React, { useEffect, useRef } from 'react'
 
 const FEATURED_GEAR = [
   {
@@ -148,110 +111,54 @@ export default function Home() {
               <span>Find My Trail</span> →
             </button> */}
           {/* </div> */}
+          
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* CARD 2: POPULAR DESTINATIONS & CULTURES */}
-      {/* ========================================================================= */}
-      <section className="space-y-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#3d6b4f]">
-               गन्तव्यहरू (GhumFir Trails)
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#1a2e1f]">
-              Popular Destinations & Cultures
-            </h2>
-          </div>
-          <p className="text-sm text-[#3d5e53] max-w-md">
-            Every trail supports local Sherpa and Tamang communities with fair economic distribution.
-          </p>
-        </div>
-
-        {/* Destination Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {FEATURED_DESTINATIONS.map((item) => (
-            <div key={item.id} className="bg-white rounded-2xl overflow-hidden shadow-md border border-[#3d6b4f]/10 group hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 overflow-hidden">
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                <span className="absolute top-4 left-4 bg-[#1a2e1f]/80 text-[#f5f0e8] text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">
-                  {item.tag}
-                </span>
-                <span className="absolute top-4 right-4 bg-amber-400 text-[#1a2e1f] text-xs font-bold px-3 py-1 rounded-full shadow">
-                  GhumFir Eco {item.GhumFirScore}%
-                </span>
-              </div>
-
-              <div className="p-6 space-y-4">
-                <div className="flex justify-between items-center text-xs font-mono text-[#3d6b4f]">
-                  <span>📍 {item.region}</span>
-                  <span>⛰️ Max {item.elevation}</span>
-                  <span>⏳ {item.days}</span>
-                </div>
-
-                <h3 className="text-xl font-bold text-[#1a2e1f] group-hover:text-[#3d6b4f] transition-colors">
-                  {item.title}
-                </h3>
-
-                <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
-                  <span className="text-lg font-extrabold text-[#1a2e1f]">{item.price}</span>
-                  <button className="bg-[#f5f0e8] hover:bg-[#3d6b4f] text-[#3d6b4f] hover:text-white px-4 py-2 rounded-lg text-xs font-semibold transition-colors cursor-pointer">
-                    View Itinerary →
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      
 
       {/* ========================================================================= */}
       {/* CARD 3: PRODUCTS & HOSPITALITY MARKETPLACE */}
       {/* ========================================================================= */}
-      <section className="bg-[#1a2e1f] text-[#f5f0e8] rounded-3xl p-8 md:p-12 space-y-8 shadow-xl">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#3d6b4f]/40 pb-6">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#a7d4c5]">
-              सामाग्री तथा गाइड भण्डार (Marketplace)
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#f5f0e8]">
-              Gear Rentals & Local Hospitality
-            </h2>
-          </div>
-          <p className="text-sm text-[#f5f0e8]/75 max-w-md">
-            Rent high-altitude gear per day or hire verified local Sherpas directly.
-          </p>
-        </div>
-
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {FEATURED_GEAR.map((gear) => (
-            <div key={gear.id} className="bg-[#243e2b] rounded-2xl overflow-hidden border border-[#3d6b4f]/30 space-y-4 p-5 hover:border-[#a7d4c5]/50 transition-all">
-              <div className="h-48 rounded-xl overflow-hidden bg-black/20">
-                <img src={gear.image} alt={gear.name} className="w-full h-full object-cover" />
-              </div>
-
-              <div className="space-y-2">
-                <span className="text-xs font-mono text-[#a7d4c5]">{gear.type}</span>
-                <h3 className="text-lg font-bold text-white">{gear.name}</h3>
-              </div>
-
-              <div className="pt-2 flex items-center justify-between">
-                <div>
-                  <span className="block text-xs text-[#f5f0e8]/60">Rental Rate</span>
-                  <span className="text-base font-extrabold text-amber-300">{gear.rentalRate}</span>
-                </div>
-
-                <button className="bg-[#3d6b4f] hover:bg-[#2d523c] text-white px-4 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer">
-                  Rent / Buy
-                </button>
-              </div>
+       <section id="products" className="max-w-7xl mx-auto px-6 md:px-8">
+        <div className="bg-[#1a2e1f] text-[#f5f0e8] rounded-3xl p-8 md:p-12 space-y-8 shadow-xl">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#3d6b4f]/40 pb-6">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#a7d4c5]">
+                सामाग्री तथा गाइड भण्डार (Marketplace)
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#f5f0e8]">
+                Gear Rentals & Local Hospitality
+              </h2>
             </div>
-          ))}
+            <p className="text-sm text-[#f5f0e8]/75 max-w-md text-left">
+              Rent high-altitude gear per day or hire verified local Sherpas directly.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            {FEATURED_GEAR.map((gear) => (
+              <div key={gear.id} className="bg-[#243e2b] rounded-2xl overflow-hidden border border-[#3d6b4f]/30 space-y-4 p-5 hover:border-[#a7d4c5]/50 transition-all">
+                <div className="h-48 rounded-xl overflow-hidden bg-black/20">
+                  <img src={gear.image} alt={gear.name} className="w-full h-full object-cover" />
+                </div>
+                <div className="space-y-2">
+                  <span className="text-xs font-mono text-[#a7d4c5]">{gear.type}</span>
+                  <h3 className="text-lg font-bold text-white">{gear.name}</h3>
+                </div>
+                <div className="pt-2 flex items-center justify-between">
+                  <div>
+                    <span className="block text-xs text-[#f5f0e8]/60">Rental Rate</span>
+                    <span className="text-base font-extrabold text-amber-300">{gear.rentalRate}</span>
+                  </div>
+                  <button className="bg-[#3d6b4f] hover:bg-[#2d523c] text-white px-4 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer">
+                    Rent / Buy
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
-
     </div>
   )
 }
