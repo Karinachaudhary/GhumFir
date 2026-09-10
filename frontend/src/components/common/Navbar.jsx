@@ -29,7 +29,7 @@ export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
   // Native Scroll Listener with Cleanup
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      setIsScrolled(window.scrollY > 5)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -59,12 +59,12 @@ export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'py-3 bg-[#f5f0e8]/92 border-b border-[#3d6b4f]/15 shadow-sm backdrop-blur-md'
-            : 'py-5 bg-transparent'
+            ? 'py-2 bg-[#f5f0e8] border-b border-[#3d6b4f]/20 shadow-md ' // Solid Off-White on scroll!
+            : 'py-4 bg-transparent'                                      // Transparent over top hero video
         }`}
-         style={{
-          backgroundColor: isScrolled ? ' bg-[#f5f0e8]/92' : 'transparent',
-        }}
+        //  style={{
+        //   backgroundColor: isScrolled ? ' bg-[#f5f0e8]/92' : 'transparent',
+        // }}
       >
         <div className="max-w-6xl mx-auto px-6 md:px-8 h-14 md:h-16 flex items-center justify-between">
           {/* Brand Logo & Name */}
@@ -80,7 +80,7 @@ export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
           {/* Desktop Navigation Links */}
           <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-8 text-2xl font-serif text-red-800">
             {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href} className="hover:text-[#1a2e1f] transition-colors">
+              <a key={link.href} href={link.href} className={`hover:text-[#1a2e1f] transition-colors ${isScrolled ? 'text-[#1a2e1f] hover:text-[#3d6b4f]' : 'text-white/90 hover:text-amber-200 drop-shadow'}`}>
                 {link.label}
               </a>
             ))}
@@ -97,10 +97,10 @@ export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
               <button
                 type="button"
                 onClick={onRegister}
-                className="hover:text-[#1a2e1f] transition-colors cursor-pointer font-serif text-red-800"
+                className={`hover:text-[#1a2e1f] transition-colors cursor-pointer font-serif ${isScrolled ? 'text-[#1a2e1f] hover:text-[#3d6b4f]' : ' text-white/90 hover:text-amber-200 drop-shadow'}`}
               >
-                Register
-              </button>
+                Register/Login
+              </button> 
             )}
            {/* Cart Icon with Badge  */}
 <button
@@ -179,7 +179,7 @@ export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
                   }}
                   className="py-2 text-left hover:text-[#1a2e1f] font-semibold text-[#3d6b4f]"
                 >
-                  Register
+                  Register/Login
                 </button>
               )}
               <button
