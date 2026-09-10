@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 export default function GhumFirLogo({ 
   href = "/", 
@@ -22,8 +23,8 @@ export default function GhumFirLogo({
   if (!asLink) return logoImage
 
   return (
-    <a href={href} aria-label="GhumFir Home" className="inline-block focus:outline-none">
+    <Link href={href} aria-label="GhumFir Home" className="inline-block focus:outline-none">
       {logoImage}
-    </a>
+    </Link>
   )
 }

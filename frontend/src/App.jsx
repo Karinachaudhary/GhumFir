@@ -1,4 +1,4 @@
-
+import { Routes, Route} from 'react-router-dom'
 import Navbar from "./components/common/Navbar"
 import Footer from "./components/common/Footer"
 import Home from "./pages/Home"
@@ -14,10 +14,12 @@ return(
       
       {/* Test Hero Content */}
       <main className=" grow  w-full space-y-16 ">
-        <Home />
-        <section id="destination" className="pt-6">
-          <Destination />
-        </section>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/destination" element={<Destination />}/>
+        {/* <Route path="/culture" element={<Culture/>}/>
+        <Route path="/products" element={<Products/>}/> */}
+      </Routes>
       </main>
       <CartDrawer />
       <Footer />

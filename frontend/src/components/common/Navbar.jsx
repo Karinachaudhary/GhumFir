@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import GhumFirLogo from './GhumFirLogo'
 // import {ShoppingCart} from './ShoppingCart'
@@ -15,10 +16,10 @@ import {ShoppingCart} from 'lucide-react'
 
 // Single Source of Truth for Navigation Links
 const NAV_LINKS = [
-  { label: 'Destinations', href: '#destination' },
-  { label: 'Explore', href: '#explore' },
-  {label: 'Culture', href:'#culture'},
-  { label: 'Products', href: '#products' },
+  { label: 'Destinations', href: '/destination' },
+  // { label: 'Explore', href: '#explore' },
+  {label: 'Culture', href:'/culture'},
+  { label: 'Products', href: '/products' },
 ]
 
 export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
@@ -80,9 +81,9 @@ export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
           {/* Desktop Navigation Links */}
           <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-8 text-2xl font-serif text-red-800">
             {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href} className={`hover:text-[#1a2e1f] transition-colors ${isScrolled ? 'text-[#1a2e1f] hover:text-[#3d6b4f]' : 'text-white/90 hover:text-amber-200 drop-shadow'}`}>
+              <Link key={link.href} to={link.href} className={`hover:text-[#1a2e1f] transition-colors ${isScrolled ? 'text-[#1a2e1f] hover:text-[#3d6b4f]' : 'text-white/90 hover:text-amber-200 drop-shadow'}`}>
                 {link.label}
-              </a>
+              </Link>
             ))}
 
             {isLoggedIn ? (
@@ -160,14 +161,14 @@ export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
           >
             <nav className="flex flex-col space-y-3 font-medium text-[#3d5e53]">
               {NAV_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setMobileDrawerOpen(false)}
                   className="py-2 hover:text-[#1a2e1f]"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
 
               {isLoggedIn ? (
