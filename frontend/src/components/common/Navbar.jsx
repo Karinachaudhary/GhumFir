@@ -104,14 +104,25 @@ export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
             )}
            {/* Cart Icon with Badge  */}
 <button
+  type="button"
   onClick={() => setIsCartOpen(true)}
-  className="relative p-2 text-[#1a2e1f] hover:text-[#3d6b4f] transition-colors cursor-pointer"
-  aria-label="Open Cart"
+  className={`group relative flex items-center gap-2 px-3.5 py-1.5 rounded-full border transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer ${
+    isScrolled
+      ? 'bg-[#1a2e1f]/5 border-[#3d6b4f]/25 text-[#1a2e1f] hover:bg-[#3d6b4f] hover:text-white hover:shadow-[0_0_18px_rgba(61,107,79,0.4)]'
+      : 'bg-white/15 border-white/30 text-white backdrop-blur-md hover:bg-white/25 hover:shadow-[0_0_20px_rgba(255,255,255,0.5)]'
+  }`}
+  aria-label="Open Shopping Cart"
 >
-  <ShoppingCart className="w-5 h-5" />
+  <ShoppingCart className="w-5 h-5 transition-transform group-hover:-rotate-12 duration-200" />
+ 
+
+  {/* Pulsing Badge */}
   {totalItems > 0 && (
-    <span className="absolute -top-1 -right-1 bg-[#a81c1c] text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center shadow">
-      {totalItems}
+    <span className="flex h-4 w-4 relative">
+      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+      <span className="relative inline-flex rounded-full h-4 w-4 bg-[#a81c1c] text-white text-[9px] font-bold items-center justify-center">
+        {totalItems}
+      </span>
     </span>
   )}
 </button>
