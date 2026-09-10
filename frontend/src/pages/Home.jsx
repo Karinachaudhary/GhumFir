@@ -8,7 +8,7 @@ const FEATURED_DESTINATIONS = [
     region: "Annapurna",
     elevation: "5,416m",
     days: "12 Days",
-    pailaScore: 96,
+    GhumFirScore: 96,
     price: "NPR 65,000",
     image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=800",
     tag: "Cultural Homestay"
@@ -19,7 +19,7 @@ const FEATURED_DESTINATIONS = [
     region: "Khumbu",
     elevation: "5,364m",
     days: "14 Days",
-    pailaScore: 92,
+    GhumFirScore: 92,
     price: "NPR 110,000",
     image: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80&w=800",
     tag: "Sherpa Heritage"
@@ -30,7 +30,7 @@ const FEATURED_DESTINATIONS = [
     region: "Langtang",
     elevation: "4,773m",
     days: "8 Days",
-    pailaScore: 98,
+    GhumFirScore: 98,
     price: "NPR 42,000",
     image: "https://images.unsplash.com/photo-1585863810459-00f72ec1c8b3?q=80&w=800",
     tag: "100% Local Eco"
@@ -65,7 +65,7 @@ const FEATURED_GEAR = [
 ]
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState('all')
+  // const [activeTab, setActiveTab] = useState('all')
   const videoRef = useRef(null)
 
   // Guarantee 100% Programmatic Autoplay on Website Load
@@ -158,7 +158,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-[#3d6b4f]">
-              पाइला गन्तव्यहरू (Paila Trails)
+               गन्तव्यहरू (GhumFir Trails)
             </span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#1a2e1f]">
               Popular Destinations & Cultures
@@ -179,7 +179,7 @@ export default function Home() {
                   {item.tag}
                 </span>
                 <span className="absolute top-4 right-4 bg-amber-400 text-[#1a2e1f] text-xs font-bold px-3 py-1 rounded-full shadow">
-                  Paila Eco {item.pailaScore}%
+                  GhumFir Eco {item.GhumFirScore}%
                 </span>
               </div>
 

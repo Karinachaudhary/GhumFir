@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react'
 import GhumFirLogo from './GhumFirLogo'
+// import {ShoppingCart} from './ShoppingCart'
+import {useCart} from '../cart/CartContext'
+import {ShoppingCart} from 'lucide-react'
 
 // Mock Logo component (Replace with your actual icon import)
-function PailaLogo({ size = 36, className = '' }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
-      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#3d6b4f"/>
-    </svg>
-  )
-}
+//  function GhumFirLogo({ size = 36, className = '' }) {
+//   return (
+//     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
+//       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#3d6b4f"/>
+//     </svg>
+//   )
+// }
 
 // Single Source of Truth for Navigation Links
 const NAV_LINKS = [
@@ -18,9 +21,10 @@ const NAV_LINKS = [
   { label: 'Products', href: '#products' },
 ]
 
-export default function Navbar({ onStart, onRegister, onDashboard, isLoggedIn }) {
+export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
+  const {totalItems, setIsCartOpen} = useCart()
 
   // Native Scroll Listener with Cleanup
   useEffect(() => {
@@ -98,6 +102,19 @@ export default function Navbar({ onStart, onRegister, onDashboard, isLoggedIn })
                 Register
               </button>
             )}
+           {/* Cart Icon with Badge  */}
+<button
+  onClick={() => setIsCartOpen(true)}
+  className="relative p-2 text-[#1a2e1f] hover:text-[#3d6b4f] transition-colors cursor-pointer"
+  aria-label="Open Cart"
+>
+  <ShoppingCart className="w-5 h-5" />
+  {totalItems > 0 && (
+    <span className="absolute -top-1 -right-1 bg-[#a81c1c] text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center shadow">
+      {totalItems}
+    </span>
+  )}
+</button>
           </nav>
 
 
@@ -165,6 +182,18 @@ export default function Navbar({ onStart, onRegister, onDashboard, isLoggedIn })
                   Register
                 </button>
               )}
+              <button
+  onClick={() => setIsCartOpen(true)}
+  className="relative p-2 text-[#1a2e1f] hover:text-[#3d6b4f] transition-colors cursor-pointer"
+  aria-label="Open Cart"
+>
+  <ShoppingCart className="w-5 h-5" />
+  {totalItems > 0 && (
+    <span className="absolute -top-1 -right-1 bg-[#a81c1c] text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center shadow">
+      {totalItems}
+    </span>
+  )}
+</button>
             </nav>
 
            

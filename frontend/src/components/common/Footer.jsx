@@ -2,7 +2,7 @@ import React from 'react'
 import GhumFirLogo from './GhumFirLogo'
 
 export default function Footer(){
-    const currentYear =new Date().getFullYear()
+    // const currentYear =new Date().getFullYear()
     return(
         <footer className="bg-[#1a2e1f] text-[#f5f0e8] pt-16 pb-12 px-8 border-t border-[#3d6b4f]/30 font-sans">
       <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 mb-12">
