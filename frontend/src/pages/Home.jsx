@@ -1,33 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import DestinationSlider from '../components/home/DestinationSlider'
 import CultureSlider from '../components/home/CultureSlider'
-
-const FEATURED_GEAR = [
-  {
-    id: 1,
-    name: "GhumFir Waterproof Trekking Boots",
-    type: "Rental & Sale",
-    rentalRate: "NPR 450 / day",
-    salePrice: "NPR 14,500",
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600"
-  },
-  {
-    id: 2,
-    name: "Himalayan Down Sleeping Bag (-20°C)",
-    type: "Rental & Sale",
-    rentalRate: "NPR 500 / day",
-    salePrice: "NPR 18,000",
-    image: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?q=80&w=600"
-  },
-  {
-    id: 3,
-    name: "Carbon Fiber Anti-Shock Poles",
-    type: "Rental & Sale",
-    rentalRate: "NPR 150 / day",
-    salePrice: "NPR 4,500",
-    image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=600"
-  }
-]
+import PopularProducts from '../components/home/PopularProducts'
 
 export default function Home() {
   // const [activeTab, setActiveTab] = useState('all')
@@ -46,9 +20,7 @@ export default function Home() {
   return (
     <div className="space-y-16 pb-12">
 
-      {/* ========================================================================= */}
-      {/* CARD 1: CINEMATIC SCENERY HERO VIDEO CARD */}
-      {/* ========================================================================= */}
+    {/* Cinematic videooo */}
       <section className="relative w-full h-screen min-h-150 overflow-hidden shadow-2xl">
         
         {/* Background Looping Video with useRef Autoplay */}
@@ -120,49 +92,9 @@ export default function Home() {
       <DestinationSlider />
 
       <CultureSlider />
+      <PopularProducts />
 
-      {/* ========================================================================= */}
-      {/* CARD 3: PRODUCTS & HOSPITALITY MARKETPLACE */}
-      {/* ========================================================================= */}
-       <section id="products" className="max-w-7xl mx-auto px-6 md:px-8">
-        <div className="bg-[#1a2e1f] text-[#f5f0e8] rounded-3xl p-8 md:p-12 space-y-8 shadow-xl">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#3d6b4f]/40 pb-6">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#a7d4c5]">
-                सामाग्री तथा गाइड भण्डार (Marketplace)
-              </span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#f5f0e8]">
-                Gear Rentals & Local Hospitality
-              </h2>
-            </div>
-            <p className="text-sm text-[#f5f0e8]/75 max-w-md text-left">
-              Rent high-altitude gear per day or hire verified local Sherpas directly.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-            {FEATURED_GEAR.map((gear) => (
-              <div key={gear.id} className="bg-[#243e2b] rounded-2xl overflow-hidden border border-[#3d6b4f]/30 space-y-4 p-5 hover:border-[#a7d4c5]/50 transition-all">
-                <div className="h-48 rounded-xl overflow-hidden bg-black/20">
-                  <img src={gear.image} alt={gear.name} className="w-full h-full object-cover" />
-                </div>
-                <div className="space-y-2">
-                  <span className="text-xs font-mono text-[#a7d4c5]">{gear.type}</span>
-                  <h3 className="text-lg font-bold text-white">{gear.name}</h3>
-                </div>
-                <div className="pt-2 flex items-center justify-between">
-                  <div>
-                    <span className="block text-xs text-[#f5f0e8]/60">Rental Rate</span>
-                    <span className="text-base font-extrabold text-amber-300">{gear.rentalRate}</span>
-                  </div>
-                  <button className="bg-[#3d6b4f] hover:bg-[#2d523c] text-white px-4 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer">
-                    Rent / Buy
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
     </div>
   )
 }
