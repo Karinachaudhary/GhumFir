@@ -18,9 +18,10 @@ import {useAuth} from '../../context/AuthContext'
 // Single Source of Truth for Navigation Links
 const NAV_LINKS = [
   { label: 'Destinations', href: '/destination' },
-  // { label: 'Explore', href: '#explore' },
   {label: 'Culture', href:'/culture'},
   { label: 'Products', href: '/products' },
+  { label: 'About', href: '/about' },
+
 ]
 
 export default function Navbar() {

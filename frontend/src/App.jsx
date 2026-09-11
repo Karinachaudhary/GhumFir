@@ -5,6 +5,7 @@ import Home from "./pages/Home"
 import Culture from './pages/Cultures'
 import Products from './pages/Products'
 import Destination from "./pages/Destination"
+import About from "./pages/About"
 import Checkout from './pages/Checkout'
 import { CartProvider } from "./components/cart/CartContext"
 import CartDrawer from "./components/cart/CartDrawer"
@@ -25,6 +26,7 @@ return(
         <Route path="/destination" element={<Destination />}/>
         <Route path="/culture" element={<Culture/>}/>
         <Route path="/products" element={<Products/>}/>
+        <Route path="/about" element={<About/>}/>
         <Route path="/checkout" element={<Checkout />}/>
       </Routes>
       </main>
