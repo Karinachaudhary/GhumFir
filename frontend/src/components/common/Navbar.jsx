@@ -4,6 +4,7 @@ import GhumFirLogo from './GhumFirLogo'
 // import {ShoppingCart} from './ShoppingCart'
 import {useCart} from '../cart/CartContext'
 import {ShoppingCart} from 'lucide-react'
+import {useAuth} from '../../context/AuthContext'
 
 // Mock Logo component (Replace with your actual icon import)
 //  function GhumFirLogo({ size = 36, className = '' }) {
@@ -22,11 +23,11 @@ const NAV_LINKS = [
   { label: 'Products', href: '/products' },
 ]
 
-export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
   const {totalItems, setIsCartOpen} = useCart()
-
+  const { user, isLoggedIn, logout, openAuthModal } = useAuth()
   // Native Scroll Listener with Cleanup
   useEffect(() => {
     const handleScroll = () => {
@@ -88,23 +89,33 @@ export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
             ))}
 
             {isLoggedIn ? (
-              <button
-                type="button"
-                onClick={onDashboard}
-                className="hover:text-[#1a2e1f] transition-colors cursor-pointer font-semibold text-[#3d6b4f]"
-              >
-                Dashboard
-              </button>
-            ) : (
-              <button
-                type="button"
-                onClick={onRegister}
-                className={`hover:text-[#1a2e1f] transition-colors cursor-pointer font-serif hover:underline hover:underline-offset-8 hover:decoration-1 ${isScrolled ? 'text-[#1a2e1f] hover:text-[#3d6b4f] hover:decoration-[#3d6b4f]' 
-          : 'text-white/90 hover:text-amber-100 drop-shadow hover:decoration-amber-100'}`}
-              >
-                Register/Login
-              </button> 
-            )}
+  <div className="flex items-center gap-3">
+    <div className="flex items-center gap-1.5 text-sm font-bold text-[#3d6b4f]">
+      <span>नमस्ते, {user.name}</span>
+      <span className="text-[10px] bg-amber-300 text-[#1a2e1f] px-2 py-0.5 rounded-full font-mono">
+        ✦ {user.pailaPoints} pts
+      </span>
+    </div>
+
+    <button
+      type="button"
+      onClick={logout}
+      className="text-xs text-red-700 hover:underline cursor-pointer font-bold"
+    >
+      Log Out
+    </button>
+  </div>
+) : (
+  <button
+    type="button"
+    onClick={() => openAuthModal('register')}
+    className={`hover:text-[#1a2e1f] transition-colors hover:underline hover:underline-offset-8 hover:decoration-1 ${isScrolled ? 'text-[#1a2e1f] hover:text-[#3d6b4f] hover:decoration-[#3d6b4f]' 
+          : 'text-white/90 hover:text-amber-100 drop-shadow hover:decoration-amber-100'
+    }`}
+  >
+    Register / Sign In
+  </button>
+)}
            {/* Cart Icon with Badge  */}
 <button
   type="button"
@@ -174,28 +185,31 @@ export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
               ))}
 
               {isLoggedIn ? (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setMobileDrawerOpen(false)
-                    onDashboard()
-                  }}
-                  className="py-2 text-left hover:text-[#1a2e1f] font-semibold text-[#3d6b4f]"
-                >
-                  Dashboard
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setMobileDrawerOpen(false)
-                    onRegister()
-                  }}
-                  className="py-2 text-left hover:text-[#1a2e1f] font-semibold text-[#3d6b4f]"
-                >
-                  Register/Login
-                </button>
-              )}
+  <div className="flex gap-3">
+    <div className="flex items-center gap-1.5 text-sm font-bold text-[#3d6b4f]">
+      <span>नमस्ते, {user.name}</span>
+      <span className="text-[10px] bg-amber-300 text-[#1a2e1f] px-2 py-0.5 rounded-full font-mono">
+        ✦ {user.pailaPoints} pts
+      </span>
+    </div>
+
+    <button
+      type="button"
+      onClick={logout}
+      className="text-xs text-red-700 hover:underline cursor-pointer font-bold"
+    >
+      Log Out
+    </button>
+  </div>
+) : (
+  <button
+    type="button"
+    onClick={() => openAuthModal('register')}
+    className="flex flex-col space-y-3 font-medium hover:text-[#1a2e1f]"
+  >
+    Register / Sign In
+  </button>
+)}
               <button
   onClick={() => setIsCartOpen(true)}
   className="relative p-2 text-[#1a2e1f] hover:text-[#3d6b4f] transition-colors cursor-pointer"

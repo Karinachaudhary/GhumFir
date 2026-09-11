@@ -1,3 +1,5 @@
+
+import { useNavigate } from 'react-router-dom'
 import React from 'react'
 import { useCart } from './CartContext'
 
@@ -12,7 +14,7 @@ export default function CartDrawer() {
     subtotalPrice,
     GhumFirPointsEarned
   } = useCart()
-
+const navigate = useNavigate()
   if (!isCartOpen) return null
 
   return (
@@ -135,9 +137,16 @@ export default function CartDrawer() {
                 <span className="text-xl text-[#3d6b4f]">NPR {subtotalPrice.toLocaleString()}</span>
               </div>
 
-              <button className="w-full bg-[#3d6b4f] hover:bg-[#2d523c] text-white py-3.5 rounded-xl font-bold text-sm shadow-md transition-colors cursor-pointer">
-                Proceed to Checkout →
-              </button>
+              <button 
+  type="button"
+  onClick={() => {
+    setIsCartOpen(false) // Closes the drawer
+    navigate('/checkout') // Navigates to checkout page!
+  }}
+  className="w-full bg-[#3d6b4f] hover:bg-[#2d523c] text-white py-3.5 rounded-xl font-bold text-sm shadow-md transition-colors cursor-pointer"
+>
+  Proceed to Checkout →
+</button>
             </div>
           )}
 

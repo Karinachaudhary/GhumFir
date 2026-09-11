@@ -60,7 +60,7 @@ export default function Home() {
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source 
-            src="/homevideo.mp4" 
+            src="/home.mp4" 
             type="video/mp4" 
           />
         </video>
