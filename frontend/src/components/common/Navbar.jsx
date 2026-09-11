@@ -81,7 +81,8 @@ export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
           {/* Desktop Navigation Links */}
           <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-8 text-2xl font-serif text-red-800">
             {NAV_LINKS.map((link) => (
-              <Link key={link.href} to={link.href} className={`hover:text-[#1a2e1f] transition-colors ${isScrolled ? 'text-[#1a2e1f] hover:text-[#3d6b4f]' : 'text-white/90 hover:text-amber-200 drop-shadow'}`}>
+              <Link key={link.href} to={link.href} className={`hover:text-[#1a2e1f] transition-colors hover:underline hover:underline-offset-8 hover:decoration-1 ${isScrolled ? 'text-[#1a2e1f] hover:text-[#3d6b4f] hover:decoration-[#3d6b4f]' 
+          : 'text-white/90 hover:text-amber-100 drop-shadow hover:decoration-amber-100'}`}>
                 {link.label}
               </Link>
             ))}
@@ -98,7 +99,8 @@ export default function Navbar({ onRegister, onDashboard, isLoggedIn }) {
               <button
                 type="button"
                 onClick={onRegister}
-                className={`hover:text-[#1a2e1f] transition-colors cursor-pointer font-serif ${isScrolled ? 'text-[#1a2e1f] hover:text-[#3d6b4f]' : ' text-white/90 hover:text-amber-200 drop-shadow'}`}
+                className={`hover:text-[#1a2e1f] transition-colors cursor-pointer font-serif hover:underline hover:underline-offset-8 hover:decoration-1 ${isScrolled ? 'text-[#1a2e1f] hover:text-[#3d6b4f] hover:decoration-[#3d6b4f]' 
+          : 'text-white/90 hover:text-amber-100 drop-shadow hover:decoration-amber-100'}`}
               >
                 Register/Login
               </button> 
