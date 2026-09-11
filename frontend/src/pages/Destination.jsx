@@ -40,8 +40,8 @@ export default function Destination() {
       // 3. Difficulty Match
       const matchesDifficulty = filters.difficulty === 'All' || dest.difficulty === filters.difficulty
 
-      // 4. Paila Eco Score Match
-      const matchesEco = dest.pailaEcoScore >= filters.minEcoScore
+      // 4. GhumFireco score match
+      const matchesEco = dest.GhumFirEcoScore >= filters.minEcoScore
 
       return matchesSearch && matchesRegion && matchesDifficulty && matchesEco
     })

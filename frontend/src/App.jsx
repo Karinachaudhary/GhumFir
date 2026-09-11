@@ -11,6 +11,7 @@ import { CartProvider } from "./components/cart/CartContext"
 import CartDrawer from "./components/cart/CartDrawer"
 import { AuthProvider } from './context/AuthContext'
 import AuthModal from './components/common/AuthModal'
+import DestinationDetails from './pages/DestinationDetails'
 
 function App(){
 return(
@@ -28,6 +29,7 @@ return(
         <Route path="/products" element={<Products/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/checkout" element={<Checkout />}/>
+        <Route path="/destination/:id" element={<DestinationDetails />} />
       </Routes>
       </main>
       <CartDrawer />

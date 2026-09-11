@@ -4,11 +4,11 @@ import { useCart } from '../components/cart/CartContext'
 import { ShieldCheck, Calendar, MapPin, User, Mail, Phone, CheckCircle2, ArrowRight } from 'lucide-react'
 
 export default function Checkout() {
-  const { cart, subtotalPrice, pailaPointsEarned, clearCart } = useCart()
+  const { cart, subtotalPrice, GhumFirPointsEarned, clearCart } = useCart()
   const navigate = useNavigate()
 
   // Form State
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({ 
     fullName: '',
     email: '',
     phone: '',
@@ -83,8 +83,8 @@ export default function Checkout() {
 
           {/* Eco Points Reward Box */}
           <div className="bg-[#3d6b4f]/10 border border-[#3d6b4f]/20 rounded-2xl p-4 flex items-center justify-between text-xs">
-            <span className="font-semibold text-[#3d6b4f]">✦ Paila Eco Points Earned</span>
-            <span className="font-extrabold text-[#1a2e1f]">+{pailaPointsEarned} Points</span>
+            <span className="font-semibold text-[#3d6b4f]">✦  GhumFir Points Earned</span>
+            <span className="font-extrabold text-[#1a2e1f]">+{GhumFirPointsEarned} Points</span>
           </div>
 
           <div className="text-xs text-left bg-[#f5f0e8] p-5 rounded-2xl space-y-2 border border-[#3d6b4f]/10 text-[#3d5e53]">
@@ -338,10 +338,10 @@ export default function Checkout() {
               </div>
             </div>
 
-            {/* Paila Points Badge */}
+            {/* GhumFir Points Badge */}
             <div className="bg-[#3d6b4f]/10 border border-[#3d6b4f]/20 rounded-xl p-3 flex items-center justify-between text-xs">
-              <span className="font-bold text-[#3d6b4f]">✦ Paila Loyalty Points</span>
-              <span className="font-extrabold text-[#1a2e1f]">+{pailaPointsEarned} Points</span>
+              <span className="font-bold text-[#3d6b4f]">✦ GhumFir Loyalty Points</span>
+              <span className="font-extrabold text-[#1a2e1f]">+{GhumFirPointsEarned} Points</span>
             </div>
 
             {/* Submit Button */}

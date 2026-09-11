@@ -27,12 +27,12 @@ export default function Footer(){
           <h4 className="font-mono text-xs tracking-widest uppercase text-[#a7d4c5] font-semibold">
             Discover Nepal
           </h4>
-          <Link className="space-y-2 text-sm text-[#f5f0e8]/80 font-body list-none">
+          <ul className="space-y-2 text-sm text-[#f5f0e8]/80 font-body list-none">
             <li><Link to="/destination" className="hover:text-[#f5f0e8] transition-colors">Destination</Link></li>
             {/* <li><Link to="/explore" className="hover:text-[#f5f0e8] transition-colors">Explore</Link></li> */}
             <li><Link to="/products" className="hover:text-[#f5f0e8] transition-colors">Products</Link></li>
             <li><Link to="/culture" className="hover:text-[#f5f0e8] transition-colors">Cultural Etiquette</Link></li>
-          </Link>
+          </ul>
         </nav>
 
         {/* Developer and Creator i.e My Column */}

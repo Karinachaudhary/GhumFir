@@ -81,10 +81,10 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-8 text-2xl font-serif text-red-800">
+          <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-8 text-1.5xl font-serif ">
             {NAV_LINKS.map((link) => (
-              <Link key={link.href} to={link.href} className={`hover:text-[#1a2e1f] transition-colors hover:underline hover:underline-offset-8 hover:decoration-1 ${isScrolled ? 'text-[#1a2e1f] hover:text-[#3d6b4f] hover:decoration-[#3d6b4f]' 
-          : 'text-white/90 hover:text-amber-100 drop-shadow hover:decoration-amber-100'}`}>
+              <Link key={link.href} to={link.href} className={`hover:text-[#1a2e1f] transition-colors hover:underline hover:underline-offset-8 hover:decoration-1 ${isScrolled ? 'text-[#215e30] hover:text-[#3d6b4f] hover:decoration-[#3d6b4f]' 
+          : 'text-white/90 hover:text-green-200 drop-shadow hover:decoration-green-200'}`}>
                 {link.label}
               </Link>
             ))}
@@ -110,8 +110,8 @@ export default function Navbar() {
   <button
     type="button"
     onClick={() => openAuthModal('register')}
-    className={`hover:text-[#1a2e1f] transition-colors hover:underline hover:underline-offset-8 hover:decoration-1 ${isScrolled ? 'text-[#1a2e1f] hover:text-[#3d6b4f] hover:decoration-[#3d6b4f]' 
-          : 'text-white/90 hover:text-amber-100 drop-shadow hover:decoration-amber-100'
+    className={`hover:text-[#1a2e1f] transition-colors hover:underline hover:underline-offset-8 hover:decoration-1 ${isScrolled ? 'text-[#215e30] hover:text-[#3d6b4f] hover:decoration-[#3d6b4f]' 
+          : 'text-white/90 hover:text-green-200 drop-shadow hover:decoration-green-200'
     }`}
   >
     Register / Sign In
@@ -173,7 +173,7 @@ export default function Navbar() {
             className="absolute top-20 left-4 right-4 bg-[#f5f0e8] border border-[#3d6b4f]/20 rounded-2xl p-6 shadow-xl space-y-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <nav className="flex flex-col space-y-3 font-medium text-[#3d5e53]">
+            <nav className="flex flex-col space-y-3 font-small text-[#3d5e53]">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}

@@ -1,8 +1,10 @@
 import { useCart } from '../cart/CartContext'
+import { useNavigate } from 'react-router-dom'
 import { MapPin, Mountain, Clock, Leaf } from 'lucide-react'
 
-export default function DestinationCard({ destination, onSelect }) {
+export default function DestinationCard({ destination }) {
   const { addToCart } = useCart()
+  const navigate =useNavigate()
 
   const handleBookTrek = (e) => {
     e.stopPropagation() // Prevents opening card details modal if clicking the button
@@ -18,7 +20,7 @@ export default function DestinationCard({ destination, onSelect }) {
 
   return (
     <div 
-      onClick={() => onSelect && onSelect(destination)}
+       onClick={() => navigate(`/destination/${destination.id}`)}
       className="bg-white rounded-3xl overflow-hidden border border-[#3d6b4f]/15 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col cursor-pointer"
     >
       {/* Mountain Image & Badges */}

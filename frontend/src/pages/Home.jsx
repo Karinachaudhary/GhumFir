@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import DestinationSlider from '../components/home/DestinationSlider'
 
 const FEATURED_GEAR = [
   {
@@ -114,6 +115,8 @@ export default function Home() {
           
         </div>
       </section>
+      {/* Interactive Destination Slider  */}
+      <DestinationSlider />
 
       
 
