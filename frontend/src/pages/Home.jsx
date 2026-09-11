@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import DestinationSlider from '../components/home/DestinationSlider'
+import CultureSlider from '../components/home/CultureSlider'
 
 const FEATURED_GEAR = [
   {
@@ -115,10 +116,10 @@ export default function Home() {
           
         </div>
       </section>
-      {/* Interactive Destination Slider  */}
+      {/* Interactive Destination and CultureSlider  */}
       <DestinationSlider />
 
-      
+      <CultureSlider />
 
       {/* ========================================================================= */}
       {/* CARD 3: PRODUCTS & HOSPITALITY MARKETPLACE */}
