@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import { DESTINATIONS_DATA } from '../data/destinations'
 import DestinationFilter from '../components/destination/DestinationFilter'
 import DestinationMap from '../components/destination/DestinationMap'
@@ -6,7 +6,16 @@ import DestinationCard from '../components/destination/DestinationCard'
 
 export default function Destination() {
   const [selectedDestination, setSelectedDestination] = useState(null)
-  
+  const videoRef = useRef(null)
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true
+      videoRef.current.play().catch((error) => {
+        console.error('Error playing video:', error)
+      })
+    }
+  }, [])
+
   // Filter State
   const [filters, setFilters] = useState({
     search: '',
@@ -48,8 +57,27 @@ export default function Destination() {
   }, [filters])
 
   return (
-    <div className="space-y-12 max-w-7xl mx-auto px-6 md:px-8 py-10">
-      
+    <div className="space-y-12 w-full pb-16">
+      {/* Cinematic videooo */}
+      <section className="relative w-full h-[50vh] min-h-120 max-h-140 overflow-hidden shadow-2xl">
+        
+        {/* Background Looping Video with useRef Autoplay */}
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+        //   poster="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1600"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source  
+            src="/destination.mp4" 
+            type="video/mp4" 
+          />
+        </video>
+</section>
+<div className="max-w-7xl mx-auto px-6 md:px-8 py-12 space-y-12 font-sans">
       {/* Page Header */}
       <div className="space-y-3 text-center md:text-left">
         <span className="inline-block bg-[#3d6b4f]/10 text-[#3d6b4f] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
@@ -88,7 +116,7 @@ export default function Destination() {
           />
         ))}
       </div>
-
+</div>
     </div>
   )
 }
