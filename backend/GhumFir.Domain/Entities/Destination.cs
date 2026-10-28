@@ -21,7 +21,7 @@ namespace GhumFir.Domain.Entities
         public decimal PriceNpr { get; set; } //Price in Nepalese Rupees
         public string ImageUrl { get; set; } = string.Empty;
         public string CultureTag { get; set; } = string.Empty;
-        public string CulturalTrip { get; set; } = string.Empty;
+        public string CulturalTip { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public double MapCoordX { get; set; } //Latitude
         public double MapCoordY { get; set; } //Longitude
